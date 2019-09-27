@@ -58,3 +58,18 @@ copyTweet = function(index) {
   var copyText = document.getElementsByTagName('p')[index].textContent;
   navigator.clipboard.writeText(copyText)
 }
+
+
+var testStr = 'I have a dream that one day this nation will rise up and live out the true meaning of its creed “We hold these truths to be self-evident, that all men are created equal.”';
+
+var modStr = testStr.split(' ');
+console.log(modStr);
+
+testCharCount = 0;
+
+modStr.forEach(function(word){
+  var wordLength = word.length;
+  testCharCount += wordLength;
+})
+
+console.log(testCharCount);
