@@ -1,0 +1,99 @@
+* {
+  
+font-family: 'Quicksand', sans-serif;
+}
+
+header {
+  background-color: #8FD129;
+  position: relative;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  padding: 45px;
+}
+
+header img {
+  max-height: 250px;
+}
+
+.title {
+  padding-left: 50px;
+}
+
+h1 {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 96px;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  padding: 0 45px;
+}
+
+button {
+  border: none;
+  background: #ED1C24;
+  padding: 10px 20px;
+  color: white;
+  transition: 0.2s background ease-in-out;
+}
+
+button:hover {
+  background: #bd161c;
+  cursor: pointer;
+}
+
+#inputs {
+  position: relative;
+}
+
+#inputs button {
+  margin-top: 40px;
+  padding: 20px;
+}
+
+#og-tweet {
+  height: 400px;
+}
+
+#tweet-count {
+  position: absolute;
+  opacity: 0;;
+  right: 0;
+  top: 405px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #72a720;
+  color: white;
+  padding: 5px 10px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#tweet-count.visible {
+  opacity: 1;
+}
+
+#output {
+  list-style: none;
+  padding-left: 80px;
+  padding-right: 40px;
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#output li {
+  padding: 20px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  flex: 0 0 46%;
+}
