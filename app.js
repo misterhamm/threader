@@ -31,6 +31,11 @@ textArea.addEventListener('keyup', liveUpdate);
 
 document.getElementById('submit').onclick = function() {
   document.getElementById('output').innerHTML = '';
+
+  if (totalTweets === 0) {
+    var audio = new Audio('23.mp3');
+    audio.play();
+  }
   
   for (var i = 0; i < totalTweets; i++) {
     var outputItems = document.getElementsByTagName('p');
