@@ -1,10 +1,8 @@
 var textArea = document.getElementById('og-tweet');
 var tweetCount = 0;
-var totalTweets = 1;
+var totalTweets = 0;
 var tweetCountTemplate = '(1 of 1)';
 var charToRemove = tweetCountTemplate.length;
-
-
 
 function liveUpdate() {
   
@@ -21,23 +19,15 @@ function liveUpdate() {
 
   if (inputVal.length === 0) {
     document.getElementById('tweet-count').classList = '';
+    totalTweets = 0;
   }
   else {
     document.getElementById('tweet-count').textContent = `You're currently at ${tweetCalc} tweet${tweetCalc > 1 ? 's' : ''}`;
     document.getElementById('tweet-count').classList = 'visible';
-  }
-
-  if (tweetCalc === 1) { 
-    return
-  
-  }
-  else if (tweetCount !== tweetCalc) {
     totalTweets = tweetCalc;
   }
 }
-
 textArea.addEventListener('keyup', liveUpdate);
-
 
 document.getElementById('submit').onclick = function() {
   document.getElementById('output').innerHTML = '';
