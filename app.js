@@ -7,7 +7,7 @@ var charToRemove = tweetCountTemplate.length;
 
 
 function liveUpdate() {
-  document.getElementById('tweet-count').classList = 'visible';
+  
   var inputVal = textArea.value;
   var rawTweetCount = inputVal.length / 280;
 
@@ -19,7 +19,13 @@ function liveUpdate() {
   var tweetFraction = characterCount / 280;
   var tweetCalc = Math.ceil(tweetFraction);
 
-  document.getElementById('tweet-count').textContent = `You're currently at ${tweetCalc} tweets`;
+  if (inputVal.length === 0) {
+    document.getElementById('tweet-count').classList = '';
+  }
+  else {
+    document.getElementById('tweet-count').textContent = `You're currently at ${tweetCalc} tweet${tweetCalc > 1 ? 's' : ''}`;
+    document.getElementById('tweet-count').classList = 'visible';
+  }
 
   if (tweetCalc === 1) { 
     return
@@ -48,7 +54,7 @@ document.getElementById('submit').onclick = function() {
     }
     var charNeeded = 280 - currCharToRemove;
     var rawOutput = textArea.value.substr(i*charNeeded,charNeeded);
-    var finalOutput = `<li class="tweet"><p>${rawOutput} (${i + 1} of ${totalTweets})</p><button onclick="copyTweet(${i})">copy tweet</button></li>`;
+    var finalOutput = `<li class="tweet"><span id="copy-confirm">copied!</span><p>${rawOutput} (${i + 1} of ${totalTweets})</p><button onclick="copyTweet(${i})">copy tweet</button></li>`;
 
     document.getElementById('output').innerHTML += finalOutput;
   }
@@ -56,20 +62,11 @@ document.getElementById('submit').onclick = function() {
 
 copyTweet = function(index) {
   var copyText = document.getElementsByTagName('p')[index].textContent;
-  navigator.clipboard.writeText(copyText)
+  navigator.clipboard.writeText(copyText);
+
+  document.getElementById('copy-confirm').classList = 'visible';
+
+  setTimeout(function(){
+    document.getElementById('copy-confirm').classList = '';
+  }, 2000);
 }
-
-
-var testStr = 'I have a dream that one day this nation will rise up and live out the true meaning of its creed “We hold these truths to be self-evident, that all men are created equal.”';
-
-var modStr = testStr.split(' ');
-console.log(modStr);
-
-testCharCount = 0;
-
-modStr.forEach(function(word){
-  var wordLength = word.length;
-  testCharCount += wordLength + 1;
-})
-
-console.log(testCharCount);

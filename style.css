@@ -1,99 +1,281 @@
 * {
   
-font-family: 'Quicksand', sans-serif;
-}
+  font-family: 'Quicksand', sans-serif;
+  }
+  
+  header {
+    background-color: #7e6295;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 45px;
+    color: white;
+  }
+  
+  header img {
+    max-height: 175px;
+  }
+  
+  .title {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .title img,
+  .title h1,
+  .title h2 {
+    padding: 0 25px;
+  }
+  .title h1 {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 76px;
+    margin: 0;
+  }
+  
+  .title h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  main {
+    display: flex;
+    padding: 0 45px 25px 45px;
+  }
+  
+  button {
+    border: none;
+    background: #654480;
+    padding: 10px 20px;
+    color: white;
+    transition: 0.2s background ease-in-out;
+    
+  }
+  span {
+    font-weight: 600;
+  }
+  button:hover {
+    background: #9e6bc7;
+    cursor: pointer;
+  }
+  #inputs {
+    position: relative;
+    display: flex;
+  }
+  
+  #inputs > .thread-builder  button {
+    margin-top: 40px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  #output li button {
+    padding: 10px;
+    border-radius: 5px;
+    width: 40%;
+  }
+  
+  #og-tweet {
+    height: 400px;
+    border: 2px solid #654480;
+    border-radius: 5px;
+    padding: 10px 15px;
+    overflow: auto;
+    resize: none;
+    margin-top: 15px;
+  }
+  #og-tweet::placeholder {
+    font-size: 20px;
+  }
+  /*----------------
+  --  Scrollbar   -- 
+  ----------------*/
+  
+  /*Scrollbar area*/ 
+  #og-tweet::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    -webkit-box-shadow: inset 0 0  3px rgb(0, 0, 0); 
+   
+  }
+   /*Scrollbar shadow / path*/
+   #og-tweet::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  /*Used to scroll.*/ 
+  #og-tweet::-webkit-scrollbar-thumb {
+    background: #6b6b6b;
+    height: 5px;
+    
+  }
+  /*Change hover color for scrollbar*/
+  #og-tweet::-webkit-scrollbar-thumb:hover {
+    background: #202020;
+    cursor: pointer;
+  }
+  /*Remove scrollbar ends*/  
+  #og-tweet::-webkit-scrollbar-corner { 
+    display: none; height: 0px; width: 0px;
+    
+   }
+  #tweet-count {
+    position: absolute;
+    opacity: 0;;
+    top: 405px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    /* background-color: #72a720; */
+    color: rgb(92, 92, 92);
+    padding: 5px 10px;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  #tweet-count.visible {
+    opacity: 1;
+  }
+  #output {
+    list-style: none;
+    padding-right: 40px;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  #output li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20px;
+    position: relative;
+    flex: 0 0 35%;
+    border-radius: 5px;
+    margin: 15px;
+    min-width: 320px;
+    max-width: 320px;
+    max-height: 400px;
+    -webkit-box-shadow: 0px 3px 11px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 11px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 11px -6px rgba(0,0,0,0.75);
+  }
+  
+  #output li:nth-child(odd){
+    transform: translate(0%);
+    animation: move-in 1s ease-in;
+  }
+  #output li:nth-child(even){
+    transform: translate(0%);
+    animation: move-in-delay 1s ease-in;
+    animation-delay: .25s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
 
-header {
-  background-color: #8FD129;
-  position: relative;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 60px;
-  padding: 45px;
-}
+  #copy-confirm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #ED1C24;
+    border-radius: 3px;
+    color: #FFFFFF;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
 
-header img {
-  max-height: 250px;
-}
+  #copy-confirm.visible {
+    opacity: 1;
+  }
 
-.title {
-  padding-left: 50px;
-}
-
-h1 {
-  font-family: 'Love Ya Like A Sister', cursive;
-  font-size: 96px;
-  margin: 0;
-}
-
-h2 {
-  margin: 0;
-  font-size: 20px;
-}
-
-main {
-  display: flex;
-  padding: 0 45px;
-}
-
-button {
-  border: none;
-  background: #ED1C24;
-  padding: 10px 20px;
-  color: white;
-  transition: 0.2s background ease-in-out;
-}
-
-button:hover {
-  background: #bd161c;
-  cursor: pointer;
-}
-
-#inputs {
-  position: relative;
-}
-
-#inputs button {
-  margin-top: 40px;
-  padding: 20px;
-}
-
-#og-tweet {
-  height: 400px;
-}
-
-#tweet-count {
-  position: absolute;
-  opacity: 0;;
-  right: 0;
-  top: 405px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  background-color: #72a720;
-  color: white;
-  padding: 5px 10px;
-  transition: opacity 0.2s ease-in-out;
-}
-
-#tweet-count.visible {
-  opacity: 1;
-}
-
-#output {
-  list-style: none;
-  padding-left: 80px;
-  padding-right: 40px;
-  margin-top: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-#output li {
-  padding: 20px;
-  border: 1px solid black;
-  margin-bottom: 10px;
-  flex: 0 0 46%;
-}
+  .footer {
+    height: 30px;
+    background: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer p {
+    margin: 0 15px;
+    font-weight: 600;
+  }
+  @keyframes move-in{
+    0% {
+      opacity: 0;
+      
+    }
+  }
+  @keyframes move-in-delay{
+    0% {
+      
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 90vw !important;
+    }
+  }
+  @media (max-width: 1280px) {
+    #inputs {
+      flex-direction: column;
+    }
+    #inputs li {
+      min-width: 300px;
+    }
+    .thread-builder {
+      margin: 0 auto 30px auto;
+    }
+    main {
+      padding: 0 15px 25px 15px;
+    }
+    #og-tweet {
+      width: 100%;
+    }
+    #tweet-count {
+      text-align: center;
+      position: initial;
+      width: fit-content;
+      margin: auto;
+    }
+    #inputs > .thread-builder button {
+      margin: auto;
+      display: flex;
+    }
+    
+  }
+  @media (max-width: 425px) {
+    .title {
+      padding: 0;
+    }
+    header {
+      padding: 25px 40px;
+    }
+    header img {
+      max-height: 100px;
+    }
+    .title h1 {
+      font-size: 24px;
+    }
+    .title h2 {
+      font-size: 20px;
+    }
+    footer {
+      height: 30px;
+      font-size: 13px;
+    }
+  }
+  
