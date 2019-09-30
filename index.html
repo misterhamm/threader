@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Quicksand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <title>Threader</title>
 </head>
 <body>
   <header>
-    <img src="TheShredder.png" alt="">
-    <div class="title">
-      <h1>Threader</h1>
-      <h2>Type all you want, we'll <s>shred</s> thread it for you.</h2>
-    </div>
-  </header>
+    
+  <div class="title">
+      <img src="TheShredder.png" alt="">
+    <h1>Threader</h1>
+    <br>
+    <h2>Type all you want, we'll <s>shred</s> thread it for you.</h2>
+  </div>
+</header>
   <main>
-    <section id="inputs">
-      <textarea name="full-tweet" id="og-tweet" cols="50" rows="20"></textarea>
-      <section id="tweet-count"></section>
-      <br/><button id="submit">Create Thread</button>
-    </section>
-    <ul id="output"></ul>
-  <script src="app.js"></script>
-  </main>
+  <section id="inputs">
+    <div class="thread-builder">
+      <textarea placeholder="Enter your tweet here..." name="full-tweet" id="og-tweet" cols="50" rows="20"></textarea>
+    <section id="tweet-count"></section>
+    <br/><button id="submit">Create Thread</button>
+    </div>
+    <ul id="output">
+    </ul>
+  
+</section>
+  
+  
+  
+</main>
+<footer class="footer">
+    <p>Built by <a href="https://twitter.com/Misterhamm" target="_blank">Chris Hamm</a></p>
+    <p>Styled by <a href="https://twitter.com/elyktrix" target="_blank">Kyle Shook</a></p>
+    
+  </footer>
+
+
+
+<script src="app.js"></script>
 </body>
 </html>
