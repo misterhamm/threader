@@ -46,20 +46,22 @@
     padding: 0 45px 25px 45px;
   }
   
-  button {
+  button, .share-button {
     border: none;
     background: #654480;
     padding: 10px 20px;
     color: white;
-    transition: 0.2s background ease-in-out;
-    
+    text-align: center;
+    transition: 0.2s background ease-in-out; 
   }
   span {
     font-weight: 600;
   }
-  button:hover {
+  button:hover, .share-button:hover {
     background: #9e6bc7;
+    color: white;
     cursor: pointer;
+    text-decoration: none;
   }
   #inputs {
     position: relative;
@@ -71,7 +73,7 @@
     padding: 15px;
     border-radius: 5px;
   }
-  #output li button {
+  #output li .share-button {
     padding: 10px;
     border-radius: 5px;
     width: 40%;
